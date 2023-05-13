@@ -39,6 +39,11 @@ sudo systemctl enable mariadb
 sudo mysql_secure_installation
 
 #PHP 7.3
+#If older version of debian then run:
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+
 sudo apt install php7.3 libapache2-mod-php7.3 php7.3-mysql php-common php7.3-cli
 php7.3-common php7.3-json php7.3-opcache php7.3-readline
 sudo a2enmod php7.3
