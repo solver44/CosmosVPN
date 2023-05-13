@@ -42,4 +42,10 @@ sudo mysql_secure_installation
 sudo apt install php7.3 libapache2-mod-php7.3 php7.3-mysql php-common php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-readline
 sudo a2enmod php7.3
 sudo systemctl restart apache2
+
+sudo a2dismod php7.3
+sudo apt install php7.3-fpm
+sudo a2enmod proxy_fcgi setenvif
+sudo a2enconf php7.3-fpm
+sudo systemctl restart apache2
 ```
