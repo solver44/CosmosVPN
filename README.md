@@ -44,7 +44,7 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 
-sudo apt install php7.3 libapache2-mod-php7.3 php7.3-mysql php-common php7.3-cli
+sudo apt install -y php7.3 libapache2-mod-php7.3 php7.3-mysql php-common php7.3-cli
 php7.3-common php7.3-json php7.3-opcache php7.3-readline
 sudo a2enmod php7.3
 sudo systemctl restart apache2
