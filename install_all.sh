@@ -15,9 +15,6 @@ curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/api.ph
 curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/config.php
 curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/functions.php
 
-# Modify the config.php file
-sed -i "s/\$apiKey = '';/\$apiKey = '6f2d72pcg6';/g" config.php
-
 # Move web files to /var/www/html/
 mv api.php config.php functions.php /var/www/html/
 
