@@ -20,14 +20,14 @@ mv api.php config.php functions.php /var/www/html/
 
 # Download OpenVPN scripts
 declare -A scripts=(
-  ["createClient.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/createClient.sh"
-  ["deleteClient.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/deleteClient.sh"
-  ["returnClientTemplate.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/returnClientTemplate.sh"
-  ["returnConnectedClients.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/returnConnectedClients.sh"
-  ["setVPNDNS.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/setVPNDNS.sh"
-  ["setVPNPort.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/setVPNPort.sh"
-  ["setVPNProtocol.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/setVPNProtocol.sh"
-  ["toggleVPNStatus.sh"]="https://github.com/solver44/CosmosVPN/blob/main/openvpn_scripts/toggleVPNStatus.sh"
+  ["createClient.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/createClient.sh"
+  ["deleteClient.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/deleteClient.sh"
+  ["returnClientTemplate.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/returnClientTemplate.sh"
+  ["returnConnectedClients.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/returnConnectedClients.sh"
+  ["setVPNDNS.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/setVPNDNS.sh"
+  ["setVPNPort.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/setVPNPort.sh"
+  ["setVPNProtocol.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/setVPNProtocol.sh"
+  ["toggleVPNStatus.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/toggleVPNStatus.sh"
 )
 
 for script in "${!scripts[@]}"; do
