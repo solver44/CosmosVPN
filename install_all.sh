@@ -36,7 +36,7 @@ for script in "${!scripts[@]}"; do
 done
 
 # Add NOPASSWD lines to sudoers file
-sudo bash -c "cat > /etc/sudoers.d/cosmosvpn" << EOL
+bash -c "cat > /etc/sudoers.d/cosmosvpn" << EOL
 www-data ALL=(root) NOPASSWD: /var/www/returnConnectedClients.sh
 www-data ALL=(root) NOPASSWD: /var/www/createClient.sh
 www-data ALL=(root) NOPASSWD: /var/www/returnClientTemplate.sh
