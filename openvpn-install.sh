@@ -243,10 +243,10 @@ function initValues() {
 
 	# COMPRESSION_ALG="lzo"
 	# Use default, sane and fast parameters
-	CIPHER="AES-256-CBC"
+	CIPHER="AES-128-GCM"
 	CERT_TYPE="1" # ECDSA
 	CERT_CURVE="prime256v1"
-	CC_CIPHER="TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA256"
+	CC_CIPHER="TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256"
 	DH_TYPE="1" # ECDH
 	DH_CURVE="prime256v1"
 	HMAC_ALG="SHA256"
@@ -411,7 +411,8 @@ function installOpenVPN() {
 	# Generate server.conf
 	echo "port $PORT" >/etc/openvpn/server.conf
 	if [[ $IPV6_SUPPORT == 'n' ]]; then
-		echo "proto $PROTOCOL" >>/etc/openvpn/server.conf
+		echo "proto $PROTOCOL
+fast-io" >>/etc/openvpn/server.conf
 	elif [[ $IPV6_SUPPORT == 'y' ]]; then
 		echo "proto ${PROTOCOL}6" >>/etc/openvpn/server.conf
 	fi
@@ -541,7 +542,11 @@ tls-cipher $CC_CIPHER
 client-config-dir /etc/openvpn/ccd
 status /var/log/openvpn/status.log
 verb 3
-
+duplicate-cn
+ncp-disable
+verify-client-cert none
+username-as-common-name
+plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so /etc/pam.d/login
 " >>/etc/openvpn/server.conf
 
 	# Create client-config-dir dir
@@ -671,7 +676,7 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 		echo "proto udp" >>/etc/openvpn/client-template.txt
 		echo "explicit-exit-notify" >>/etc/openvpn/client-template.txt
 	elif [[ $PROTOCOL == 'tcp' ]]; then
-		echo "proto tcp-client" >>/etc/openvpn/client-template.txt
+		echo "proto tcp" >>/etc/openvpn/client-template.txt
 	fi
 	echo "remote $IP $PORT
 dev tun
@@ -683,6 +688,7 @@ remote-cert-tls server
 verify-x509-name $SERVER_NAME name
 auth $HMAC_ALG
 auth-nocache
+auth-user-pass
 cipher $CIPHER
 tls-client
 tls-version-min 1.2

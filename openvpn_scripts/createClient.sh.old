@@ -101,5 +101,4 @@ function newClient() {
         exit 0
 }
 
-# Call the newClient1 function with the provided arguments
 newClient1 "$1" "$2"
