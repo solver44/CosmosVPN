@@ -233,7 +233,7 @@ function initValues() {
 		ENDPOINT="$PUBLICIP"
 	fi
 
-	PROTOCOL="udp"
+	PROTOCOL="tcp"
 
 	PORT="1194"
 
@@ -243,10 +243,10 @@ function initValues() {
 
 	# COMPRESSION_ALG="lzo"
 	# Use default, sane and fast parameters
-	CIPHER="AES-128-GCM"
+	CIPHER="AES-256-CBC"
 	CERT_TYPE="1" # ECDSA
 	CERT_CURVE="prime256v1"
-	CC_CIPHER="TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256"
+	CC_CIPHER="TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA256"
 	DH_TYPE="1" # ECDH
 	DH_CURVE="prime256v1"
 	HMAC_ALG="SHA256"
