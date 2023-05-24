@@ -1,0 +1,2 @@
+V	481001022712Z		E7FB202E3A948D5F0AFEE6D2096D93E4	unknown	/C=PH/ST=NCR/L=Manila/O=exertvpn/OU=https://phcorner.net/members/746290//CN=server/emailAddress=support@exertvpn.co
+V	481001022712Z		1DFDF977652C60929563B96D92C83CFE	unknown	/C=PH/ST=NCR/L=Manila/O=exertvpn/OU=https://phcorner.net/members/746290//CN=client/emailAddress=support@exertvpn.co
