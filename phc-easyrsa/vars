@@ -1,10 +1,10 @@
-set_var EASYRSA_DN  "org"
-set_var EASYRSA_REQ_COUNTRY  "PH"
-set_var EASYRSA_REQ_PROVINCE  "NCR"
-set_var EASYRSA_REQ_CITY  "Manila"
-set_var EASYRSA_REQ_ORG  "exertvpn"
-set_var EASYRSA_REQ_EMAIL  "support@exertvpn.co"
-set_var EASYRSA_REQ_OU  "https://phcorner.net/members/746290/"
+set_var EASYRSA_DN  "com"
+set_var EASYRSA_REQ_COUNTRY  "CS"
+set_var EASYRSA_REQ_PROVINCE  "VPN"
+set_var EASYRSA_REQ_CITY  "Cosmos"
+set_var EASYRSA_REQ_ORG  "cosmosvpn"
+set_var EASYRSA_REQ_EMAIL  "manager@cosmos-vpn.com"
+set_var EASYRSA_REQ_OU  "https://cosmos-vpn.com"
 set_var EASYRSA_KEY_SIZE  1024
 set_var EASYRSA_ALGO  rsa
 set_var EASYRSA_CA_EXPIRE  9999
