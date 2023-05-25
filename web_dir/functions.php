@@ -31,10 +31,9 @@ function getConnectedClients()
      return shell_exec("sudo /var/www/returnConnectedClients.sh");
 }
 
-function createClient1($clientName, $usePassword)
+function createClient($clientName)
 {
-     $passwordOption = $usePassword == "yes" ? 'yes' : 'no';
-     $output = shell_exec("sudo /var/www/createClient.sh $clientName $passwordOption");
+     $output = shell_exec("sudo /var/www/createClient.sh \"$clientName\"");
 
      // Check if the user already exists
      $userExists = strpos($output, 'User already exists') !== false;
@@ -47,7 +46,7 @@ function createClient1($clientName, $usePassword)
      // Separate the generated content
      $generatedContent = explode("<ca>", $output);
      $username = $clientName;
-     $password = $usePassword ? trim($generatedContent[0]) : null;
+     $password = trim($generatedContent[0]);
      $config = trim('<ca>' . $generatedContent[1]);
 
      return [
@@ -56,27 +55,6 @@ function createClient1($clientName, $usePassword)
           'config' => $config,
           'user_exists' => $userExists,
      ];
-}
-function createClient($clientName, $usePassword)
-{
-    // Call the new_client_with_user.sh Bash script to create the user and generate the OpenVPN configuration
-    $bashScriptPath = "/var/www/createClient.sh";
-    $output = shell_exec("sudo {$bashScriptPath} {$clientName}");
-
-    // Parse the output to get the username, password, and OpenVPN configuration
-    preg_match('/Username: (\S+)/', $output, $usernameMatches);
-    preg_match('/Password: (\S+)/', $output, $passwordMatches);
-    preg_match('/(<ca>[\s\S]*<\/tls-crypt>)/', $output, $configMatches);
-
-    $username = $usernameMatches[1];
-    $password = $passwordMatches[1];
-    $clientConfig = 'auth-user-pass\n' . $configMatches[1];
-
-    return [
-        'username' => $username,
-        'password' => $password,
-        'config' => $clientConfig,
-    ];
 }
 
 function deleteClient($clientName)
