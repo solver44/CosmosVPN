@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ -z "$1" ]; then
-  echo "Usage: <script> username"
-  exit 1
+    echo "Usage: <script> username"
+    exit 1
 fi
-
+User="$1"
 
 function outputConfig() {
     CLIENT=$1
@@ -15,10 +15,10 @@ function outputConfig() {
     cat "/etc/openvpn/easy-rsa/pki/ca.crt"
     echo "</ca>"
     echo "<cert>"
-    awk '/BEGIN/,/END/' "/etc/openvpn/easy-rsa/pki/issued/$User.crt"
+    awk '/BEGIN/,/END/' "/etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt"
     echo "</cert>"
     echo "<key>"
-    cat "/etc/openvpn/easy-rsa/pki/private/$User.key"
+    cat "/etc/openvpn/easy-rsa/pki/private/$CLIENT.key"
     echo "</key>"
     echo "<tls-crypt>"
     cat /etc/openvpn/tls-crypt.key
@@ -32,7 +32,6 @@ if [[ $(grep -c "^$User" /etc/passwd) -ne 0 ]]; then
     outputConfig "$User" "$PASSWORD"
     exit
 else
-    User=$1
     Pass=$(openssl rand -base64 16)
     Days=365
 
@@ -52,8 +51,8 @@ else
     cd /etc/openvpn/easy-rsa/ || return
     echo yes | ./easyrsa build-client-full "$User" nopass >/dev/null
 
-    echo "${User}:${Pass}" >>/etc/openvpn/credentials.txt
-
+    clear
     outputConfig "$User" "$Pass"
+    echo "${User}:${Pass}" >>/etc/openvpn/credentials.txt
     exit 0
 fi
