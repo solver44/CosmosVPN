@@ -18,13 +18,12 @@ if ($_POST["action"] == "connectedclients")
     echo getConnectedClients();
 
 if ($_POST["action"] == "createclient") {
-    if (!isset($_POST["clientName"]) || !isset($_POST['usePassword'])) {
+    if (!isset($_POST["clientName"])) {
         die("Data not found!");
     }
-    $password = $_POST['usePassword'];
     // Output the result
     header('Content-Type: application/json');
-    echo json_encode(createClient($_POST["clientName"], $password));
+    echo json_encode(createClient($_POST["clientName"]));
     die;
 }
 
