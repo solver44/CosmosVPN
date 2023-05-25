@@ -307,7 +307,7 @@ function installOpenVPN() {
 	if [[ ! -e /etc/openvpn/server.conf ]]; then
 		if [[ $OS =~ (debian|ubuntu) ]]; then
 			apt-get update
-			apt-get -y install ca-certificates gnupg libpam0g-dev
+			apt-get -y install ca-certificates gnupg
 			# We add the OpenVPN repo to get the latest version.
 			if [[ $VERSION_ID == "16.04" ]]; then
 				echo "deb http://build.openvpn.net/debian/openvpn/stable xenial main" >/etc/apt/sources.list.d/openvpn.list
