@@ -4,7 +4,7 @@
 MYSQL_ROOT_PASSWORD="6f2d72pcg6"
 
 # Update packages and upgrade the system
-apt update && apt upgrade -y
+# apt update && apt upgrade -y
 
 # Install Apache, MySQL, and PHP
 DEBIAN_FRONTEND=noninteractive apt install -y apache2 default-mysql-server php libapache2-mod-php php-mysql

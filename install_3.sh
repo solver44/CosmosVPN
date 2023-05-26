@@ -28,3 +28,5 @@ www-data ALL=(root) NOPASSWD: /var/www/setVPNDNS.sh
 www-data ALL=(root) NOPASSWD: /var/www/toggleVPNStatus.sh
 www-data ALL=(root) NOPASSWD: /var/www/removeVPN.sh
 EOL
+
+echo "Downloaded scripts and moved to /var/www/"

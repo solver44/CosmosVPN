@@ -37,9 +37,7 @@ function createClient($clientName)
 
      // Check if the user already exists
      $userExists = strpos($output, 'User already exists') !== false;
-     if($userExists == false){
-          $output = explode(".inline", $output)[1];
-     }else{
+     if ($userExists !== false) {
           $output = explode("User already exists", $output)[1];
      }
 
