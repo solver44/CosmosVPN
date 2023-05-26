@@ -34,4 +34,4 @@ mv api.php functions.php /var/www/html/
 
 createConfig "$1"
 
-echo "lamp installed and created config with api key!"
+echo -e "\nLAMP installed and created Config with API key!"
