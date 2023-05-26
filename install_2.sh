@@ -33,3 +33,5 @@ curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/functi
 mv api.php functions.php /var/www/html/
 
 createConfig "$1"
+
+echo "lamp installed and created config with api key!"
