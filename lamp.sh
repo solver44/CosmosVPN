@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set your MySQL root password
-MYSQL_ROOT_PASSWORD="6f2d72pcg6"
+MYSQL_ROOT_PASSWORD="cosmos@123"
 
 # Update packages and upgrade the system
 # apt update && apt upgrade -y
