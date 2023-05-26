@@ -10,8 +10,6 @@ function outputConfig() {
     PASSWORD=$2
 
     echo "$PASSWORD"
-    echo -e "\n"
-    cat /etc/openvpn/client-template.txt
     echo "<ca>"
     cat "/etc/openvpn/easy-rsa/pki/ca.crt"
     echo "</ca>"
