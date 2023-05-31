@@ -418,6 +418,8 @@ fast-io" >>/etc/openvpn/server.conf
 	fi
 
 	echo "dev tun
+sndbuf 0
+rcvbuf 0
 user nobody
 group $NOGROUP
 persist-key
@@ -680,6 +682,8 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 	fi
 	echo "remote $IP $PORT
 dev tun
+sndbuf 0
+rcvbuf 0
 resolv-retry infinite
 nobind
 persist-key
