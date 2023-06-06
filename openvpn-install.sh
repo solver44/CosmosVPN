@@ -233,7 +233,7 @@ function initValues() {
 		ENDPOINT="$PUBLICIP"
 	fi
 
-	PROTOCOL="udp"
+	PROTOCOL="tcp"
 
 	PORT="1194"
 
@@ -678,11 +678,11 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 	elif [[ $PROTOCOL == 'tcp' ]]; then
 		echo "proto tcp" >>/etc/openvpn/client-template.txt
 	fi
-	echo "remote $IP $PORT
+	echo "sndbuf 0
+rcvbuf 0
+remote $IP $PORT
 dev tun
 tun-mtu 8192
-fragment 0
-mssfix 0
 resolv-retry infinite
 nobind
 persist-key
