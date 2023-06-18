@@ -682,7 +682,6 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 rcvbuf 0
 remote $IP $PORT
 dev tun
-tun-mtu 8192
 resolv-retry infinite
 nobind
 persist-key

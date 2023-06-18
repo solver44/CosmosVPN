@@ -29,10 +29,10 @@ echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 # Restart Apache to make sure all components are working together
 systemctl restart apache2
 
-# Disable direwall blocks
+# Disable firewall blocks
 ufw allow 80/tcp
-ufw allow 1194/udp
-# ufw allow 1194/tcp
+ufw allow 1196/udp
+ufw allow 1194/tcp
 ufw reload
 
 echo "Installation complete. Visit http://your_server_ip/info.php to test your LAMP stack."
