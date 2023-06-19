@@ -233,7 +233,7 @@ function initValues() {
 		ENDPOINT="$PUBLICIP"
 	fi
 
-	PROTOCOL="tcp"
+	PROTOCOL="udp"
 
 	PORT="1194"
 
