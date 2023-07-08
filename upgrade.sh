@@ -33,6 +33,12 @@ sed -i 's/^port .*/port 1198/; s/^server .*/server 10.10.0.0 255.255.255.0/' "$S
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 iptables -t nat -I POSTROUTING 1 -s 10.9.0.0/24 -o $NIC -j MASQUERADE
 iptables -t nat -I POSTROUTING 1 -s 10.10.0.0/24 -o $NIC -j MASQUERADE
+iptables -I INPUT 1 -i tun1 -j ACCEPT
+iptables -I FORWARD 1 -i enp1s0 -o tun1 -j ACCEPT
+iptables -I FORWARD 1 -i tun1 -o enp1s0 -j ACCEPT
+iptables -I INPUT 1 -i tun2 -j ACCEPT
+iptables -I FORWARD 1 -i enp1s0 -o tun2 -j ACCEPT
+iptables -I FORWARD 1 -i tun2 -o enp1s0 -j ACCEPT
 
 # allo ports
 ufw allow 1196/udp
