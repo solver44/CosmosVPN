@@ -24,8 +24,8 @@ cp "$SERVER_CONF" "$SERVER_TCP_CONF"
 } >> "$SERVER_CONF"
 
 # Change the port and protocol in the udp_premium.conf and tcp_premium files
-sed -i 's/^port .*/port 1196/; s/^proto .*/proto udp/' "$SERVER_UDP_CONF"
-sed -i 's/^port .*/port 1198/' "$SERVER_TCP_CONF"
+sed -i 's/^port .*/port 1196/; s/^proto .*/proto udp/; s/^dev .*/dev tun1/' "$SERVER_UDP_CONF"
+sed -i 's/^port .*/port 1198/; s/^dev .*/dev tun2/' "$SERVER_TCP_CONF"
 
 # Download the tc.sh script if it doesn't exist
 if [[ ! -f "$TC_SCRIPT" ]]; then
