@@ -9,6 +9,8 @@ declare -A scripts=(
     ["setVPNProtocol.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/setVPNProtocol.sh"
     ["toggleVPNStatus.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/toggleVPNStatus.sh"
     ["removeVPN.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/removeVPN.sh"
+    ["updateServer.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/updateServer.sh"
+    ["changeSpeedLimit.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/changeSpeedLimit.sh"
 )
 # Remove current scripts
 rm -r /var/www/*

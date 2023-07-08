@@ -417,9 +417,11 @@ fast-io" >>/etc/openvpn/server.conf
 		echo "proto ${PROTOCOL}6" >>/etc/openvpn/server.conf
 	fi
 
+# user nobody
+# group $NOGROUP
 	echo "dev tun
-user nobody
-group $NOGROUP
+sndbuf 0
+rcvbuf 0
 persist-key
 persist-tun
 keepalive 10 120

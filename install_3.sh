@@ -10,6 +10,7 @@ declare -A scripts=(
     ["toggleVPNStatus.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/toggleVPNStatus.sh"
     ["removeVPN.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/removeVPN.sh"
     ["updateServer.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/updateServer.sh"
+    ["changeSpeedLimit.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/changeSpeedLimit.sh"
 )
 
 for script in "${!scripts[@]}"; do
@@ -29,6 +30,7 @@ www-data ALL=(root) NOPASSWD: /var/www/setVPNDNS.sh
 www-data ALL=(root) NOPASSWD: /var/www/toggleVPNStatus.sh
 www-data ALL=(root) NOPASSWD: /var/www/removeVPN.sh
 www-data ALL=(root) NOPASSWD: /var/www/updateServer.sh
+www-data ALL=(root) NOPASSWD: /var/www/changeSpeedLimit.sh
 EOL
 
 echo "Downloaded scripts and moved to /var/www/"
