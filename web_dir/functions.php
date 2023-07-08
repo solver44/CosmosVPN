@@ -67,6 +67,10 @@ function setVPNPort($port, $ip)
 {
      return shell_exec("sudo /var/www/setVPNPort.sh $port $ip");
 }
+function setSpeedLimit($limit)
+{
+     return shell_exec("sudo /var/www/changeSpeedLimit.sh $limit");
+}
 
 function setVPNProtocol($protocol)
 {

@@ -36,6 +36,9 @@ if ($_POST["action"] == "deleteclient")
 if ($_POST["action"] == "setvpnport")
     echo setVPNPort($_POST["vpnPort"], $_POST["setIP"]) ? 'true' : 'false';
 
+if ($_POST["action"] == "setspeedlimit")
+    echo setSpeedLimit($_POST["limit"]) ? 'true' : 'false';
+
 if ($_POST["action"] == "setvpnprotocol")
     echo setVPNProtocol($_POST["vpnProtocol"]) ? 'true' : 'false';
 
