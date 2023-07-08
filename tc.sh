@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INTERFACE="tun0"
-LIMIT="20mbit"
+LIMIT="25mbit"
 LOG_FILE="/var/log/openvpn/tc.log"
 
 # Function to check if a user is already limited
