@@ -31,8 +31,8 @@ sed -i 's/^port .*/port 1198/; s/^server .*/server 10.10.0.0 255.255.255.0/' "$S
 
 # add rules
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
-iptables -t nat -I POSTROUTING 1 -s 10.9.0.0/24 -o $NIC -j MASQUERADE
-iptables -t nat -I POSTROUTING 1 -s 10.10.0.0/24 -o $NIC -j MASQUERADE
+echo "iptables -t nat -I POSTROUTING 1 -s 10.9.0.0/24 -o $NIC -j MASQUERADE
+iptables -t nat -I POSTROUTING 1 -s 10.10.0.0/24 -o $NIC -j MASQUERADE" >>/etc/iptables/add-openvpn-rules.sh
 
 # allo ports
 ufw allow 1196/udp
