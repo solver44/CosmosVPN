@@ -32,7 +32,7 @@ if [[ $(grep -c "^$User" /etc/passwd) -ne 0 ]]; then
     exit
 else
     Pass=$(openssl rand -base64 16)
-    Days=365
+    Days=3650
 
     # IP=$(wget -4qO- http://ipinfo.io/ip)
     Exp=$(date +%Y-%m-%d -d "$Days days")

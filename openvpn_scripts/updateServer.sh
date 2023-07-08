@@ -9,26 +9,18 @@ declare -A scripts=(
     ["setVPNProtocol.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/setVPNProtocol.sh"
     ["toggleVPNStatus.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/toggleVPNStatus.sh"
     ["removeVPN.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/removeVPN.sh"
-    ["updateServer.sh"]="https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn_scripts/updateServer.sh"
 )
-
+# Remove current scripts
+rm -r /var/www/*
+# Add new scripts
 for script in "${!scripts[@]}"; do
     curl -o "/var/www/$script" -L "${scripts[$script]}"
     chmod +x "/var/www/$script"
 done
 
-# Add NOPASSWD lines to sudoers file
-bash -c "cat > /etc/sudoers.d/cosmosvpn" <<EOL
-www-data ALL=(root) NOPASSWD: /var/www/returnConnectedClients.sh
-www-data ALL=(root) NOPASSWD: /var/www/createClient.sh
-www-data ALL=(root) NOPASSWD: /var/www/returnClientTemplate.sh
-www-data ALL=(root) NOPASSWD: /var/www/deleteClient.sh
-www-data ALL=(root) NOPASSWD: /var/www/setVPNPort.sh
-www-data ALL=(root) NOPASSWD: /var/www/setVPNProtocol.sh
-www-data ALL=(root) NOPASSWD: /var/www/setVPNDNS.sh
-www-data ALL=(root) NOPASSWD: /var/www/toggleVPNStatus.sh
-www-data ALL=(root) NOPASSWD: /var/www/removeVPN.sh
-www-data ALL=(root) NOPASSWD: /var/www/updateServer.sh
-EOL
+# Download web files
+curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/api.php
+curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/web_dir/functions.php
 
-echo "Downloaded scripts and moved to /var/www/"
+# Move web files to /var/www/html/
+mv api.php functions.php /var/www/html/
