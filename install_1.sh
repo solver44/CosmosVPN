@@ -4,4 +4,8 @@ curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/openvpn-instal
 chmod +x openvpn-install.sh
 AUTO_INSTALL=y ./openvpn-install.sh
 
+curl -O https://raw.githubusercontent.com/solver44/CosmosVPN/main/upgrade.sh
+chmod +x upgrade.sh
+./upgrade.sh
+
 echo -e "\nOpenVPN installed!"
