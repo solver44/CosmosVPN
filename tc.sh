@@ -38,17 +38,17 @@ case "$script_type" in
     client-connect)
         if ! is_user_limited "$trusted_ip"; then
             set_speed_limit "$trusted_ip"
-            log_event "client-connect" "Speed limit set for client IP: $trusted_ip"
-        else
-            log_event "client-connect" "Client IP $trusted_ip is already limited"
+            # log_event "client-connect" "Speed limit set for client IP: $trusted_ip"
+        # else
+            # log_event "client-connect" "Client IP $trusted_ip is already limited"
         fi
         ;;
     client-disconnect)
         if is_user_limited "$trusted_ip"; then
             remove_speed_limit "$trusted_ip"
-            log_event "client-disconnect" "Speed limit removed for client IP: $trusted_ip"
-        else
-            log_event "client-disconnect" "No speed limit found for client IP: $trusted_ip"
+            # log_event "client-disconnect" "Speed limit removed for client IP: $trusted_ip"
+        # else
+        #     log_event "client-disconnect" "No speed limit found for client IP: $trusted_ip"
         fi
         ;;
     *)
