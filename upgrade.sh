@@ -56,7 +56,7 @@ if [[ ! -f "$TC_SCRIPT" ]]; then
 fi
 # Download the exclude.sh script if it doesn't exist
 if [[ ! -f "$EXCLUDE_SCRIPT" ]]; then
-    echo "Downloading exclude_user.sh script from $TC_SCRIPT_URL..."
+    echo "Downloading exclude_user.sh script from $EXCLUDE_SCRIPT_URL..."
     curl -o "$EXCLUDE_SCRIPT" "$EXCLUDE_SCRIPT_URL"
     chmod +x "$EXCLUDE_SCRIPT"
 fi
