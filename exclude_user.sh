@@ -24,8 +24,8 @@ disable_client_connection() {
 case "$script_type" in
     client-connect)
         if [ "$CLIENT_NAME" = "$EXCLUDE_NAME" ]; then
-            disable_client_connection
-            exit 1
+            # disable_client_connection
+            exit 1 # error auth
         fi
         ;;
     *)

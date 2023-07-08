@@ -4,15 +4,12 @@ function is_openvpn_installed()
 {
      // Command to check if OpenVPN is installed
      $command = 'which openvpn';
-
      // Execute the command using shell_exec
      $output = shell_exec($command);
-
      // Check if the output contains the path to OpenVPN
      if (!empty($output) && strpos($output, '/openvpn') !== false) {
           return "true";
      }
-
      return "false";
 }
 

@@ -6,6 +6,5 @@ chmod +x install_dir.sh
 sudo touch /etc/openvpn/credentials.txt
 sudo chmod 600 /etc/openvpn/credentials.txt
 
-# sudo apt-get install expect -y
-
+rm -r ./*
 echo "Successfully installed!"
