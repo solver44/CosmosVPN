@@ -37,6 +37,7 @@ iptables -t nat -I POSTROUTING 1 -s 10.10.0.0/24 -o $NIC -j MASQUERADE
 # allo ports
 ufw allow 1196/udp
 ufw allow 1198/tcp
+ufw reload
 
 # Download the tc.sh script if it doesn't exist
 if [[ ! -f "$TC_SCRIPT" ]]; then
