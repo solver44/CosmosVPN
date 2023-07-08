@@ -5,7 +5,7 @@ SERVER_TCP_CONF="/etc/openvpn/tcp_premium.conf"
 TC_SCRIPT="/etc/openvpn/tc.sh"
 TC_SCRIPT_URL="https://raw.githubusercontent.com/solver44/CosmosVPN/main/tc.sh"
 EXCLUDE_SCRIPT="/etc/openvpn/exclude_user.sh"
-EXCLUDE_SCRIPT="https://raw.githubusercontent.com/solver44/CosmosVPN/main/exclude_user.sh"
+EXCLUDE_SCRIPT_URL="https://raw.githubusercontent.com/solver44/CosmosVPN/main/exclude_user.sh"
 
 # Check if the server.conf file exists
 if [[ ! -f "$SERVER_CONF" ]]; then
@@ -57,7 +57,7 @@ fi
 # Download the exclude.sh script if it doesn't exist
 if [[ ! -f "$EXCLUDE_SCRIPT" ]]; then
     echo "Downloading exclude_user.sh script from $TC_SCRIPT_URL..."
-    curl -o "$EXCLUDE_SCRIPT" "$TC_SCRIPT_URL"
+    curl -o "$EXCLUDE_SCRIPT" "$EXCLUDE_SCRIPT_URL"
     chmod +x "$EXCLUDE_SCRIPT"
 fi
 
