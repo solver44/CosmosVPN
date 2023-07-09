@@ -30,8 +30,10 @@ cp "$SERVER_CONF" "$SERVER_TCP_CONF"
 # server 10.8.0.0 255.255.255.0
 sed -i 's/^port .*/port 1196/; s/^proto .*/proto udp/; s/^server .*/server 10.9.0.0 255.255.255.0/' "$SERVER_UDP_CONF"
 sed -i 's/^port .*/port 1198/; s/^server .*/server 10.10.0.0 255.255.255.0/' "$SERVER_TCP_CONF"
-echo "client-connect $EXCLUDE_SCRIPT" >> "$SERVER_UDP_CONF"
-echo "client-connect $EXCLUDE_SCRIPT" >> "$SERVER_TCP_CONF"
+echo "script-security 2
+client-connect $EXCLUDE_SCRIPT" >> "$SERVER_UDP_CONF"
+echo "script-security 2
+client-connect $EXCLUDE_SCRIPT" >> "$SERVER_TCP_CONF"
 # add rules
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 iptables -t nat -I POSTROUTING 1 -s 10.9.0.0/24 -o $NIC -j MASQUERADE
