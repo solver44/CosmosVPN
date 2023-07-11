@@ -31,8 +31,10 @@ done
 SERVER_UDP_CONF="/etc/openvpn/udp_premium.conf"
 SERVER_TCP_CONF="/etc/openvpn/tcp_premium.conf"
 
-sed -i 's/^status .*/port /var/log/openvpn/status_udp.log/;' "$SERVER_UDP_CONF"
-sed -i 's/^status .*/port /var/log/openvpn/status_tcp.log/;' "$SERVER_TCP_CONF"
+sed -i 's/^status .*/status \/var\/log\/openvpn\/status_udp.log/;' "$SERVER_UDP_CONF"
+sed -i 's/^status .*/status \/var\/log\/openvpn\/status_tcp.log/;' "$SERVER_TCP_CONF"
 
 systemctl restart openvpn@udp_premium.service
 systemctl restart openvpn@tcp_premium.service
+
+rm ./update_server.sh
