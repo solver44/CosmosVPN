@@ -20,7 +20,6 @@ cp "$SERVER_CONF" "$SERVER_TCP_CONF"
 # Append the additional lines to the original server.conf file
 {
     echo "script-security 2"
-    echo "down-pre"
     echo "client-connect $TC_SCRIPT"
     echo "client-disconnect $TC_SCRIPT"
 } >> "$SERVER_CONF"
