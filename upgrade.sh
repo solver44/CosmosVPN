@@ -64,6 +64,7 @@ if [[ ! -f "$EXCLUDE_SCRIPT" ]]; then
 fi
 
 start_openvpn() {
+    systemctl restart openvpn@server.service
     systemctl start openvpn@udp_premium.service
     systemctl start openvpn@tcp_premium.service
 }

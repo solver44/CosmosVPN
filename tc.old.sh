@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ipdir=/etc/openvpn/tc/ip
-dbdir=/etc/openvpn/tc/db
 ip="$ifconfig_pool_remote_ip"
 cn="$common_name"
 ip_local="$ifconfig_local"
@@ -105,8 +104,8 @@ bwlimit-enable() {
 
   echo "$ip" > "$ipdir"/"$cn".ip
 
-  downrate="25mbit"
-  uprate="25mbit"
+  downrate="21mbit"
+  uprate="21mbit"
 
   tc class add dev "$dev" parent 1: classid 1:"$classid" htb rate "$downrate"
   tc filter add dev "$dev" parent 1:0 protocol ip prio 1 \
