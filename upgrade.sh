@@ -27,8 +27,8 @@ cp "$SERVER_CONF" "$SERVER_TCP_CONF"
 # Change the port and protocol in the udp_premium.conf and tcp_premium files
 # s/^dev .*/dev tun1/
 # server 10.8.0.0 255.255.255.0
-sed -i 's/^port .*/port 1196/; s/^proto .*/proto udp/; s/^server .*/server 10.9.0.0 255.255.255.0/' "$SERVER_UDP_CONF"
-sed -i 's/^port .*/port 1198/; s/^server .*/server 10.10.0.0 255.255.255.0/' "$SERVER_TCP_CONF"
+sed -i 's/^port .*/port 1196/; s/^proto .*/proto udp/; s/^server .*/server 10.9.0.0 255.255.255.0/; s/^status .*/status \/var\/log\/openvpn\/status_udp.log/' "$SERVER_UDP_CONF"
+sed -i 's/^port .*/port 1198/; s/^server .*/server 10.10.0.0 255.255.255.0/; s/^status .*/status \/var\/log\/openvpn\/status_tcp.log/;' "$SERVER_TCP_CONF"
 echo "script-security 2
 client-connect $EXCLUDE_SCRIPT" >> "$SERVER_UDP_CONF"
 echo "script-security 2
