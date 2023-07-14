@@ -545,7 +545,7 @@ client-config-dir /etc/openvpn/ccd
 status /var/log/openvpn/status.log
 verb 3
 duplicate-cn
-ncp-disable
+#ncp-disable
 verify-client-cert none
 username-as-common-name
 plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so /etc/pam.d/login
