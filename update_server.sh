@@ -27,5 +27,5 @@
 # # Move web files to /var/www/html/
 # mv api.php functions.php /var/www/html/
 
-/var/www/changeSpeedLimit.sh "21mbit"
+/var/www/changeSpeedLimit.sh "20mbit"
 systemctl restart openvpn@server.service
